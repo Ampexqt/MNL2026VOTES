@@ -1,0 +1,29 @@
+* { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Helvetica', Arial, sans-serif; }
+body { background: #fff; scroll-behavior: smooth; }
+nav { padding: 15px 20px; display: flex; justify-content: space-between; border-bottom: 1px solid #eee; position: sticky; top: 0; background: white; z-index: 100; font-weight: bold; }
+
+.hero { 
+    background: #111; 
+    height: 60vh; color: white; 
+    display: flex; align-items: center; justify-content: center; text-align: center;
+}
+.hero-btn { background: white; color: black; padding: 10px 25px; text-decoration: none; font-weight: bold; border-radius: 4px; display: inline-block; margin-top: 20px; }
+
+.voting-header { text-align: center; padding: 50px 20px; }
+.date { font-size: 2.2rem; font-weight: 900; margin-top: 10px; }
+
+.grid-container { padding: 10px; max-width: 500px; margin: auto; }
+.candidate-card { margin-bottom: 40px; border: 1px solid #eee; border-radius: 5px; overflow: hidden; }
+.candidate-card img { width: 100%; display: block; height: 500px; object-fit: cover; }
+.card-info { padding: 20px; text-align: center; }
+.name { font-size: 1.6rem; font-weight: bold; margin-bottom: 15px; text-transform: uppercase; }
+
+.vote-btn { 
+    display: block; width: 100%; padding: 15px; border: 2px solid #000; 
+    color: #000; text-decoration: none; font-weight: bold; text-transform: uppercase;
+}
+.vote-btn:hover { background: #000; color: #fff; }
+
+.newsletter { padding: 60px 20px; background: #f9f9f9; text-align: center; border-top: 1px solid #eee; }
+.newsletter input { width: 100%; max-width: 350px; padding: 15px; margin-bottom: 10px; border: 1px solid #ccc; display: block; margin-left: auto; margin-right: auto; border-radius: 4px; }
+.sub-btn { width: 100%; max-width: 350px; padding: 15px; background: #000; color: #fff; border: none; font-weight: bold; cursor: pointer; border-radius: 4px; }
