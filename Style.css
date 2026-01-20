@@ -1,29 +1,337 @@
-* { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Helvetica', Arial, sans-serif; }
-body { background: #fff; scroll-behavior: smooth; }
-nav { padding: 15px 20px; display: flex; justify-content: space-between; border-bottom: 1px solid #eee; position: sticky; top: 0; background: white; z-index: 100; font-weight: bold; }
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap');
 
-.hero { 
-    background: #111; 
-    height: 60vh; color: white; 
-    display: flex; align-items: center; justify-content: center; text-align: center;
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Inter', 'Helvetica', Arial, sans-serif;
 }
-.hero-btn { background: white; color: black; padding: 10px 25px; text-decoration: none; font-weight: bold; border-radius: 4px; display: inline-block; margin-top: 20px; }
 
-.voting-header { text-align: center; padding: 50px 20px; }
-.date { font-size: 2.2rem; font-weight: 900; margin-top: 10px; }
-
-.grid-container { padding: 10px; max-width: 500px; margin: auto; }
-.candidate-card { margin-bottom: 40px; border: 1px solid #eee; border-radius: 5px; overflow: hidden; }
-.candidate-card img { width: 100%; display: block; height: 500px; object-fit: cover; }
-.card-info { padding: 20px; text-align: center; }
-.name { font-size: 1.6rem; font-weight: bold; margin-bottom: 15px; text-transform: uppercase; }
-
-.vote-btn { 
-    display: block; width: 100%; padding: 15px; border: 2px solid #000; 
-    color: #000; text-decoration: none; font-weight: bold; text-transform: uppercase;
+body {
+    background: #FAFAFA;
+    scroll-behavior: smooth;
+    min-height: 100vh;
 }
-.vote-btn:hover { background: #000; color: #fff; }
 
-.newsletter { padding: 60px 20px; background: #f9f9f9; text-align: center; border-top: 1px solid #eee; }
-.newsletter input { width: 100%; max-width: 350px; padding: 15px; margin-bottom: 10px; border: 1px solid #ccc; display: block; margin-left: auto; margin-right: auto; border-radius: 4px; }
-.sub-btn { width: 100%; max-width: 350px; padding: 15px; background: #000; color: #fff; border: none; font-weight: bold; cursor: pointer; border-radius: 4px; }
+nav {
+    padding: 20px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #F5F5F5;
+    backdrop-filter: blur(10px);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    font-weight: bold;
+    box-shadow: 0 4px 20px rgba(18, 18, 18, 0.08);
+    border-bottom: 1px solid rgba(38, 38, 38, 0.1);
+}
+
+.logo {
+    font-size: 1.2rem;
+    letter-spacing: 2px;
+    color: #121212;
+    font-weight: 900;
+}
+
+.hero {
+    background: #121212;
+    height: 70vh;
+    color: #FAFAFA;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><circle cx="50" cy="50" r="2" fill="white" opacity="0.05"/></svg>');
+    animation: float 20s linear infinite;
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0);
+    }
+
+    100% {
+        transform: translateY(-100px);
+    }
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1;
+}
+
+.hero h1 {
+    font-size: 3rem;
+    font-weight: 900;
+    margin-bottom: 20px;
+    text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    letter-spacing: 1px;
+    color: #EDEDED;
+}
+
+.hero-btn {
+    background: #FAFAFA;
+    color: #121212;
+    padding: 16px 40px;
+    text-decoration: none;
+    font-weight: 700;
+    border-radius: 50px;
+    display: inline-block;
+    margin-top: 20px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 0.95rem;
+}
+
+.hero-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
+    background: #EDEDED;
+}
+
+.voting-header {
+    text-align: center;
+    padding: 60px 20px 40px;
+    background: transparent;
+}
+
+.voting-header h2 {
+    font-size: 2.5rem;
+    font-weight: 900;
+    color: #121212;
+    margin-bottom: 15px;
+    letter-spacing: 1px;
+}
+
+.deadline {
+    font-size: 0.95rem;
+    color: #262626;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.date {
+    font-size: 2.8rem;
+    font-weight: 900;
+    margin-top: 10px;
+    color: #1E1E1E;
+}
+
+.grid-container {
+    padding: 20px;
+    max-width: 600px;
+    margin: auto;
+    margin-bottom: 40px;
+}
+
+.candidate-card {
+    margin-bottom: 50px;
+    background: #F5F5F5;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 10px 40px rgba(18, 18, 18, 0.15);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    position: relative;
+    border: 1px solid rgba(30, 30, 30, 0.1);
+}
+
+.candidate-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 60px rgba(18, 18, 18, 0.25);
+}
+
+.candidate-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 5px;
+    background: #121212;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.candidate-card:hover::before {
+    opacity: 1;
+}
+
+.candidate-card img {
+    width: 100%;
+    display: block;
+    height: 550px;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+    filter: grayscale(0%);
+}
+
+.candidate-card:hover img {
+    transform: scale(1.05);
+}
+
+.card-info {
+    padding: 30px;
+    text-align: center;
+    background: #F5F5F5;
+}
+
+.name {
+    font-size: 1.8rem;
+    font-weight: 900;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #121212;
+}
+
+.vote-btn {
+    display: block;
+    width: 100%;
+    padding: 18px;
+    background: #121212;
+    color: #FAFAFA;
+    text-decoration: none;
+    font-weight: 700;
+    text-transform: uppercase;
+    border-radius: 50px;
+    transition: all 0.3s ease;
+    letter-spacing: 1px;
+    font-size: 1rem;
+    box-shadow: 0 4px 15px rgba(18, 18, 18, 0.3);
+    border: 2px solid #121212;
+    position: relative;
+    overflow: hidden;
+}
+
+.vote-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+    transition: left 0.5s ease;
+}
+
+.vote-btn:hover::before {
+    left: 100%;
+}
+
+.vote-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(18, 18, 18, 0.4);
+    background: #1E1E1E;
+}
+
+.vote-btn:active {
+    transform: translateY(0);
+}
+
+.newsletter {
+    padding: 80px 20px;
+    background: #F5F5F5;
+    text-align: center;
+    border-top: 2px solid rgba(30, 30, 30, 0.1);
+}
+
+.newsletter h3 {
+    font-size: 2rem;
+    font-weight: 900;
+    margin-bottom: 10px;
+    color: #121212;
+}
+
+.newsletter p {
+    color: #262626;
+    margin-bottom: 30px;
+    font-size: 1.1rem;
+}
+
+.newsletter input {
+    width: 100%;
+    max-width: 400px;
+    padding: 18px 24px;
+    margin-bottom: 15px;
+    border: 2px solid #EDEDED;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 50px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    background: #FAFAFA;
+    color: #121212;
+}
+
+.newsletter input:focus {
+    outline: none;
+    border-color: #262626;
+    box-shadow: 0 0 0 3px rgba(38, 38, 38, 0.1);
+}
+
+.sub-btn {
+    width: 100%;
+    max-width: 400px;
+    padding: 18px;
+    background: #121212;
+    color: #FAFAFA;
+    border: none;
+    font-weight: 700;
+    cursor: pointer;
+    border-radius: 50px;
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(18, 18, 18, 0.3);
+}
+
+.sub-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(18, 18, 18, 0.4);
+    background: #1E1E1E;
+}
+
+.sub-btn:active {
+    transform: translateY(0);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .hero h1 {
+        font-size: 2rem;
+    }
+
+    .voting-header h2 {
+        font-size: 1.8rem;
+    }
+
+    .date {
+        font-size: 2rem;
+    }
+
+    .candidate-card img {
+        height: 400px;
+    }
+
+    nav {
+        padding: 15px 20px;
+    }
+}
