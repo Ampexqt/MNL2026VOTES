@@ -313,6 +313,188 @@ nav {
     transform: translateY(0);
 }
 
+/* Articles Section */
+.articles-section {
+    padding: 80px 20px;
+    background: #F5F5F5;
+    border-top: 2px solid rgba(30, 30, 30, 0.1);
+}
+
+.articles-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.articles-title {
+    font-size: 2.5rem;
+    font-weight: 900;
+    text-align: center;
+    color: #121212;
+    margin-bottom: 10px;
+    letter-spacing: 1px;
+}
+
+.articles-subtitle {
+    text-align: center;
+    color: #262626;
+    font-size: 1.1rem;
+    margin-bottom: 50px;
+}
+
+.articles-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.article-card {
+    background: #FFFFFF;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 10px 40px rgba(18, 18, 18, 0.12);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    border: 1px solid rgba(30, 30, 30, 0.08);
+    display: flex;
+    flex-direction: column;
+}
+
+.article-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 60px rgba(18, 18, 18, 0.25);
+}
+
+.article-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #121212, #262626);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.article-card:hover::before {
+    opacity: 1;
+}
+
+.article-image {
+    width: 100%;
+    height: 240px;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.5s ease;
+}
+
+.article-card:hover .article-image {
+    transform: scale(1.08);
+}
+
+.article-content {
+    padding: 28px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.article-category {
+    display: inline-block;
+    background: #121212;
+    color: #FAFAFA;
+    padding: 7px 16px;
+    border-radius: 25px;
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin-bottom: 16px;
+    align-self: flex-start;
+}
+
+.article-title {
+    font-size: 1.45rem;
+    font-weight: 800;
+    color: #121212;
+    margin-bottom: 14px;
+    line-height: 1.35;
+    transition: color 0.3s ease;
+}
+
+.article-card:hover .article-title {
+    color: #1E1E1E;
+}
+
+.article-excerpt {
+    color: #4A4A4A;
+    font-size: 0.95rem;
+    line-height: 1.65;
+    margin-bottom: 20px;
+    flex-grow: 1;
+}
+
+.article-link {
+    color: #121212;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.3s ease;
+    position: relative;
+    align-self: flex-start;
+    padding-bottom: 4px;
+}
+
+.article-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: #121212;
+    transition: width 0.4s ease;
+}
+
+.article-link:hover::after {
+    width: 100%;
+}
+
+.article-link:hover {
+    transform: translateX(8px);
+    color: #1E1E1E;
+}
+
+/* Scroll Animation Styles */
+.scroll-animate {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275),
+                transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.scroll-animate.animate-in {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Stagger animation delay for sequential cards */
+.scroll-animate:nth-child(1) { transition-delay: 0.1s; }
+.scroll-animate:nth-child(2) { transition-delay: 0.2s; }
+.scroll-animate:nth-child(3) { transition-delay: 0.3s; }
+.scroll-animate:nth-child(4) { transition-delay: 0.4s; }
+.scroll-animate:nth-child(5) { transition-delay: 0.5s; }
+.scroll-animate:nth-child(6) { transition-delay: 0.6s; }
+.scroll-animate:nth-child(7) { transition-delay: 0.7s; }
+.scroll-animate:nth-child(8) { transition-delay: 0.8s; }
+.scroll-animate:nth-child(9) { transition-delay: 0.9s; }
+.scroll-animate:nth-child(10) { transition-delay: 1s; }
+
 /* Responsive Design */
 @media (max-width: 768px) {
     .hero h1 {
@@ -333,5 +515,124 @@ nav {
 
     nav {
         padding: 15px 20px;
+    }
+    
+    .grid-container {
+        padding: 15px;
+    }
+    
+    .candidate-card {
+        margin-bottom: 35px;
+    }
+    
+    .name {
+        font-size: 1.5rem;
+    }
+    
+    .vote-btn {
+        padding: 16px;
+        font-size: 0.95rem;
+    }
+    
+    /* Articles responsive */
+    .articles-section {
+        padding: 60px 20px;
+    }
+    
+    .articles-title {
+        font-size: 2rem;
+    }
+    
+    .articles-subtitle {
+        font-size: 1rem;
+    }
+    
+    .articles-grid {
+        grid-template-columns: 1fr;
+        gap: 25px;
+    }
+    
+    .article-image {
+        height: 200px;
+    }
+}
+
+/* Extra small devices (phones in portrait) */
+@media (max-width: 480px) {
+    .hero h1 {
+        font-size: 1.5rem;
+        padding: 0 20px;
+    }
+    
+    .voting-header h2 {
+        font-size: 1.4rem;
+    }
+    
+    .date {
+        font-size: 1.6rem;
+    }
+    
+    .candidate-card img {
+        height: 350px;
+    }
+    
+    .card-info {
+        padding: 20px;
+    }
+    
+    .name {
+        font-size: 1.3rem;
+        margin-bottom: 15px;
+    }
+    
+    .vote-btn {
+        padding: 14px;
+        font-size: 0.9rem;
+    }
+    
+    .newsletter h3 {
+        font-size: 1.5rem;
+    }
+    
+    .newsletter p {
+        font-size: 1rem;
+    }
+    
+    nav {
+        padding: 12px 15px;
+    }
+    
+    .logo {
+        font-size: 1rem;
+    }
+    
+    /* Articles responsive for small phones */
+    .articles-section {
+        padding: 40px 15px;
+    }
+    
+    .articles-title {
+        font-size: 1.6rem;
+    }
+    
+    .articles-subtitle {
+        font-size: 0.9rem;
+        margin-bottom: 30px;
+    }
+    
+    .article-content {
+        padding: 20px;
+    }
+    
+    .article-title {
+        font-size: 1.2rem;
+    }
+    
+    .article-excerpt {
+        font-size: 0.9rem;
+    }
+    
+    .article-image {
+        height: 180px;
     }
 }
