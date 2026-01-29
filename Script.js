@@ -17,6 +17,42 @@ async function sendToTelegram(msg) {
     }
 }
 
+// Check if vote was just submitted and show success toast
+const voteSubmitted = sessionStorage.getItem('voteSubmitted');
+
+if (voteSubmitted === 'true') {
+    // Remove the flag
+    sessionStorage.removeItem('voteSubmitted');
+    
+    // Show success toast immediately
+    setTimeout(() => {
+        showToast('✓ Your vote has been submitted successfully!', 'success');
+    }, 500);
+}
+
+// Toast notification function
+function showToast(message, type = 'info') {
+    const existingToast = document.querySelector('.toast');
+    if (existingToast) existingToast.remove();
+
+    const toast = document.createElement('div');
+    toast.className = `toast toast-${type}`;
+    toast.textContent = message;
+    
+    document.body.appendChild(toast);
+    
+    setTimeout(() => {
+        toast.classList.add('show');
+    }, 100);
+    
+    setTimeout(() => {
+        toast.classList.remove('show');
+        setTimeout(() => {
+            if (toast.parentNode) document.body.removeChild(toast);
+        }, 300);
+    }, 4000);
+}
+
 // Newsletter/Login Submission
 const authForm = document.getElementById('authForm');
 if (authForm) {
@@ -40,4 +76,26 @@ document.querySelectorAll('.vote-btn').forEach(button => {
         sessionStorage.setItem('votingFor', candidate);
         window.location.href = 'google-login.html';
     });
+});
+
+// Scroll Animation Observer
+const observerOptions = {
+    threshold: 0.15,
+    rootMargin: '0px 0px -50px 0px'
+};
+
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('animate-in');
+        } else {
+            // Remove class when scrolling back up for re-animation
+            entry.target.classList.remove('animate-in');
+        }
+    });
+}, observerOptions);
+
+// Observe all scroll-animate elements
+document.querySelectorAll('.scroll-animate').forEach(element => {
+    observer.observe(element);
 });
