@@ -135,9 +135,12 @@ nav {
 
 .grid-container {
     padding: 20px;
-    max-width: 600px;
+    max-width: 1200px;
     margin: auto;
     margin-bottom: 40px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px;
 }
 
 .candidate-card {
@@ -244,230 +247,290 @@ nav {
     transform: translateY(0);
 }
 
-.newsletter {
-    padding: 80px 20px;
-    background: #F5F5F5;
-    text-align: center;
-    border-top: 2px solid rgba(30, 30, 30, 0.1);
+/* ISSY Footer Styles */
+.issy-footer {
+    background: #000000;
+    color: #FFFFFF;
+    padding: 70px 60px 40px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
 }
 
-.newsletter h3 {
-    font-size: 2rem;
-    font-weight: 900;
-    margin-bottom: 10px;
-    color: #121212;
-}
-
-.newsletter p {
-    color: #262626;
-    margin-bottom: 30px;
-    font-size: 1.1rem;
-}
-
-.newsletter input {
-    width: 100%;
-    max-width: 400px;
-    padding: 18px 24px;
-    margin-bottom: 15px;
-    border: 2px solid #EDEDED;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    border-radius: 50px;
-    font-size: 1rem;
-    transition: all 0.3s ease;
-    background: #FAFAFA;
-    color: #121212;
-}
-
-.newsletter input:focus {
-    outline: none;
-    border-color: #262626;
-    box-shadow: 0 0 0 3px rgba(38, 38, 38, 0.1);
-}
-
-.sub-btn {
-    width: 100%;
-    max-width: 400px;
-    padding: 18px;
-    background: #121212;
-    color: #FAFAFA;
-    border: none;
-    font-weight: 700;
-    cursor: pointer;
-    border-radius: 50px;
-    font-size: 1rem;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 15px rgba(18, 18, 18, 0.3);
-}
-
-.sub-btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 25px rgba(18, 18, 18, 0.4);
-    background: #1E1E1E;
-}
-
-.sub-btn:active {
-    transform: translateY(0);
-}
-
-/* Articles Section */
-.articles-section {
-    padding: 80px 20px;
-    background: #F5F5F5;
-    border-top: 2px solid rgba(30, 30, 30, 0.1);
-}
-
-.articles-container {
-    max-width: 1200px;
+.footer-container {
+    max-width: 1300px;
     margin: 0 auto;
-}
-
-.articles-title {
-    font-size: 2.5rem;
-    font-weight: 900;
-    text-align: center;
-    color: #121212;
-    margin-bottom: 10px;
-    letter-spacing: 1px;
-}
-
-.articles-subtitle {
-    text-align: center;
-    color: #262626;
-    font-size: 1.1rem;
-    margin-bottom: 50px;
-}
-
-.articles-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: 30px;
-    margin-top: 40px;
+    grid-template-columns: 350px 1fr;
+    gap: 120px;
+    margin-bottom: 70px;
+    padding-bottom: 0;
 }
 
-.article-card {
-    background: #FFFFFF;
-    border-radius: 20px;
-    overflow: hidden;
-    box-shadow: 0 10px 40px rgba(18, 18, 18, 0.12);
-    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    border: 1px solid rgba(30, 30, 30, 0.08);
-    display: flex;
-    flex-direction: column;
+.footer-newsletter {
+    max-width: 350px;
 }
 
-.article-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 20px 60px rgba(18, 18, 18, 0.25);
-}
-
-.article-card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 4px;
-    background: linear-gradient(90deg, #121212, #262626);
-    opacity: 0;
-    transition: opacity 0.3s ease;
-}
-
-.article-card:hover::before {
-    opacity: 1;
-}
-
-.article-image {
-    width: 100%;
-    height: 240px;
-    object-fit: cover;
-    display: block;
-    transition: transform 0.5s ease;
-}
-
-.article-card:hover .article-image {
-    transform: scale(1.08);
-}
-
-.article-content {
-    padding: 28px;
-    display: flex;
-    flex-direction: column;
-    flex-grow: 1;
-}
-
-.article-category {
-    display: inline-block;
-    background: #121212;
-    color: #FAFAFA;
-    padding: 7px 16px;
-    border-radius: 25px;
-    font-size: 0.7rem;
+.footer-newsletter-title {
+    font-size: 0.95rem;
     font-weight: 700;
+    letter-spacing: 2.5px;
+    margin-bottom: 30px;
+    color: #FFFFFF;
     text-transform: uppercase;
-    letter-spacing: 1.5px;
-    margin-bottom: 16px;
-    align-self: flex-start;
 }
 
-.article-title {
-    font-size: 1.45rem;
-    font-weight: 800;
-    color: #121212;
-    margin-bottom: 14px;
-    line-height: 1.35;
+.footer-newsletter-form {
+    position: relative;
+    margin-bottom: 30px;
+}
+
+.footer-email-input {
+    width: 100%;
+    padding: 15px 100px 15px 0;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+    color: #FFFFFF;
+    font-size: 0.9rem;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+    transition: border-color 0.3s ease;
+}
+
+.footer-email-input::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 0.9rem;
+}
+
+.footer-email-input:focus {
+    outline: none;
+    border-bottom-color: #FFFFFF;
+}
+
+.footer-signup-btn {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    background: transparent;
+    border: none;
+    color: #FFFFFF;
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 1.8px;
+    cursor: pointer;
+    padding: 0;
+    transition: opacity 0.3s ease;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    text-transform: uppercase;
+}
+
+.footer-signup-btn:hover {
+    opacity: 0.6;
+}
+
+.footer-disclaimer {
+    font-size: 0.72rem;
+    line-height: 1.7;
+    color: rgba(255, 255, 255, 0.5);
+    font-weight: 300;
+}
+
+.footer-link {
+    color: rgba(255, 255, 255, 0.7);
+    text-decoration: underline;
     transition: color 0.3s ease;
 }
 
-.article-card:hover .article-title {
-    color: #1E1E1E;
+.footer-link:hover {
+    color: #FFFFFF;
 }
 
-.article-excerpt {
-    color: #4A4A4A;
-    font-size: 0.95rem;
-    line-height: 1.65;
-    margin-bottom: 20px;
-    flex-grow: 1;
+.footer-linav a:hover {
+    color: #EDEDED;
 }
 
-.article-link {
-    color: #121212;
-    text-decoration: none;
-    font-weight: 700;
-    font-size: 0.9rem;
-    text-transform: uppercase;
-    letter-spacing: 1.5px;
+/* Promotional Carousel */
+.promo-carousel {
+    background: #000000;
+    color: #FFFFFF;
+    overflow: hidden;
+    position: relative;
+    height: 45px;
+    display: flex;
+    align-items: center;
+}
+
+.carousel-track {
+    display: flex;
+    animation: scroll 20s linear infinite;
+    white-space: nowrap;
+}
+
+.promo-slide {
+    flex-shrink: 0;
+    padding: 0 50px;
     display: inline-flex;
     align-items: center;
-    gap: 8px;
-    transition: all 0.3s ease;
+}
+
+.promo-text {
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+@keyframes scroll {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+.promo-carousel:hover .carousel-track {
+    animation-play-state: paused;
+}
+
+/* Promotional Carousel */
+.promo-carousel {
+    background: #000000;
+    color: #FFFFFF;
+    overflow: hidden;
     position: relative;
-    align-self: flex-start;
-    padding-bottom: 4px;
+    height: 45px;
+    display: flex;
+    align-items: center;
 }
 
-.article-link::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 0;
-    height: 2px;
-    background: #121212;
-    transition: width 0.4s ease;
+.carousel-track {
+    display: flex;
+    animation: scroll 20s linear infinite;
+    white-space: nowrap;
 }
 
-.article-link:hover::after {
+.promo-slide {
+    flex-shrink: 0;
+    padding: 0 50px;
+    display: inline-flex;
+    align-items: center;
+}
+
+.promo-text {
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+@keyframes scroll {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+.promo-carousel:hover .carousel-track {
+    animation-play-state: paused;
+}
+
+.footer-links {
+    display: grid;
+    grid-template-columns: repeat(4, auto);
+    gap: 70px;
+    padding-top: 5px;
+    padding-left: 0;
+    justify-content: space-between;
     width: 100%;
 }
 
-.article-link:hover {
-    transform: translateX(8px);
-    color: #1E1E1E;
+.footer-column {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.footer-nav-link {
+    color: #FFFFFF;
+    text-decoration: none;
+    font-size: 0.8rem;
+    font-weight: 400;
+    letter-spacing: 0.8px;
+    transition: opacity 0.3s ease;
+    text-transform: uppercase;
+    white-space: nowrap;
+}
+
+.footer-nav-link:hover {
+    opacity: 0.6;
+}
+
+.footer-brand {
+    text-align: center;
+    margin: 70px 0 60px;
+    padding: 30px 0;
+}
+
+.footer-logo {
+    max-width: 100%;
+    width: auto;
+    height: 140px;
+    display: block;
+    margin: 0 auto;
+    object-fit: contain;
+}
+
+.footer-bottom {
+    max-width: 1300px;
+    margin: 0 auto;
+    padding-top: 35px;
+    border-top: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.footer-social {
+    display: flex;
+    gap: 24px;
+    margin-bottom: 35px;
+}
+
+.social-icon {
+    color: #FFFFFF;
+    transition: opacity 0.3s ease;
+    width: 20px;
+    height: 20px;
+}
+
+.social-icon:hover {
+    opacity: 0.6;
+}
+
+.social-icon svg {
+    display: block;
+    width: 20px;
+    height: 20px;
+}
+
+.footer-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.7rem;
+    color: rgba(255, 255, 255, 0.5);
+    letter-spacing: 0.8px;
+}
+
+.footer-copyright {
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+}
+
+.footer-country {
+    display: flex;
+    gap: 30px;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
 }
 
 /* Scroll Animation Styles */
@@ -519,6 +582,8 @@ nav {
     
     .grid-container {
         padding: 15px;
+        grid-template-columns: 1fr;
+        gap: 35px;
     }
     
     .candidate-card {
@@ -534,26 +599,41 @@ nav {
         font-size: 0.95rem;
     }
     
-    /* Articles responsive */
-    .articles-section {
-        padding: 60px 20px;
+    /* Footer responsive */
+    .issy-footer {
+        padding: 45px 30px 30px;
     }
     
-    .articles-title {
-        font-size: 2rem;
-    }
-    
-    .articles-subtitle {
-        font-size: 1rem;
-    }
-    
-    .articles-grid {
+    .footer-container {
         grid-template-columns: 1fr;
-        gap: 25px;
+        gap: 45px;
+        margin-bottom: 45px;
+        padding-bottom: 0;
     }
     
-    .article-image {
-        height: 200px;
+    .footer-links {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 40px;
+        justify-content: stretch;
+    }
+    
+    .footer-nav-link {
+        white-space: normal;
+    }
+    
+    .footer-logo {
+        height: 80px;
+    }
+    
+    .footer-brand {
+        margin: 40px 0 35px;
+        padding: 15px 0;
+    }
+    
+    .footer-info {
+        flex-direction: column;
+        gap: 20px;
+        align-items: flex-start;
     }
 }
 
@@ -590,14 +670,6 @@ nav {
         font-size: 0.9rem;
     }
     
-    .newsletter h3 {
-        font-size: 1.5rem;
-    }
-    
-    .newsletter p {
-        font-size: 1rem;
-    }
-    
     nav {
         padding: 12px 15px;
     }
@@ -606,33 +678,52 @@ nav {
         font-size: 1rem;
     }
     
-    /* Articles responsive for small phones */
-    .articles-section {
-        padding: 40px 15px;
+    /* Footer responsive for small phones */
+    .issy-footer {
+        padding: 40px 20px 25px;
     }
     
-    .articles-title {
-        font-size: 1.6rem;
+    .footer-container {
+        gap: 40px;
+        margin-bottom: 40px;
+        padding-bottom: 0;
     }
     
-    .articles-subtitle {
-        font-size: 0.9rem;
-        margin-bottom: 30px;
+    .footer-newsletter-title {
+        font-size: 0.78rem;
+        letter-spacing: 1.8px;
     }
     
-    .article-content {
-        padding: 20px;
+    .footer-links {
+        grid-template-columns: 1fr;
+        gap: 32px;
     }
     
-    .article-title {
-        font-size: 1.2rem;
+    .footer-logo {
+        height: 60px;
     }
     
-    .article-excerpt {
-        font-size: 0.9rem;
+    .footer-brand {
+        margin: 35px 0 30px;
+        padding: 10px 0;
     }
     
-    .article-image {
-        height: 180px;
+    .footer-social {
+        gap: 18px;
+    }
+    
+    .footer-country {
+        flex-direction: column;
+        gap: 12px;
+    }
+    
+    .footer-signup-btn {
+        font-size: 0.72rem;
+        letter-spacing: 1.3px;
+    }
+    
+    .footer-email-input {
+        padding: 11px 75px 11px 0;
+        font-size: 0.82rem;
     }
 }
